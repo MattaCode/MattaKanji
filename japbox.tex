@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}%ékezeteshez
+%\usepackage[T1]{fontenc}%szimbólumokhoz
+\usepackage[english]{babel}%ilyen nyelvű dokumentum lesz, jól fog elválasztani, többet is lehet beírni, ez majd választható lesz.
+\usepackage{a4wide}
+%\usepackage{times}%beépített betűtípushoz
+\usepackage{CJK}
+\usepackage[CJK, overlap]{ruby}
+\usepackage{parskip}
+\usepackage{setspace}
+\tolerance=8000
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\begin{Huge}
+\renewcommand{\rubysep}{-0.1ex}
+\input{./javito.tex}
+%\input{./feladat.tex}
+\end{Huge}
+\end{CJK}
+\end{document}
