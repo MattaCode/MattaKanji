@@ -297,30 +297,13 @@ void OneBaseWriter(string database,ostream& myfile1,char& type){
         if(res1.compare(res2)==0){
             //hiragana egysegeknek egyben kell maradni
             //ha az elozo nem ilyen volt
-//            if(!prev){
-//            myfile1<<"}\\hspace{1 pt}"; //close mbox
-//             myfile1<<"\\mbox{"; //open mbox for hiragana insert
-//           }
+
             myfile1<<"\\makebox[0.9 cm][c]{"<<res1<<"}";
 
             //vesszo beolvasasa
             temp2=utf8::next(it2,hiragana.end());
             res2="";
 
-            //mi fog következni, ha van még
-//            if(it1!=kanji.end()){
-//            uint32_t tempk=utf8::peek_next(it1,kanji.end());
-//            uint32_t temph=utf8::peek_next(it2,hiragana.end());
-//            string resk,resh;
-//            utf8::utf32to8(&tempk,&tempk+1,back_inserter(resk));
-//            utf8::utf32to8(&temph,&temph+1,back_inserter(resh));
-            //ha a kov. nem hiragana lesz
-//            if(resk.compare(resh)!=0){
-//                myfile1<<"}\\hspace{1 pt}"; //close hiragana mbox
- //               myfile1<<"\\mbox{"; //open mbox for next word
-//            }
- //           }
- //           prev=true; //hiraganat irtunk ki, nem kanjit
 
         }
 
@@ -335,7 +318,6 @@ void OneBaseWriter(string database,ostream& myfile1,char& type){
                 myfile1<<res1;
         }
 
- //       prev=false; //kanjit irtunk ki nem hiraganat
 
         myfile1<<"}}{";
         //cout<<res1<<'\t';
@@ -575,96 +557,6 @@ int main()
         myfile1.close();
     }
 
-
-
-    //cout<<"keresendo kanji:"<<endl;
-    //cin>>fkanji;
-
-    //cout<<"keresendo olvasat"<<endl;
-    //cin>>reading;
-
-    //FindKanji(database,"./workdata.txt",fkanji);
-    //FindReading(database,"./workdata2.txt",reading);
-    //RandomTest(database,"./workdata3.txt",5);
-
-//    string filename;
-//    string outname;
-//    string kanji;
-//    string hiragana;
-//
-//    cout<<"kerem a fajlnevet"<<endl;
-//    cin>>filename;
-//    cout<<"kerem a kimeneti nevet"<<endl;
-//    cin>>outname;
-//
-//    ofstream myfile1;
-//    myfile1.precision(6);
-//    myfile1.open((outname).c_str(),ios::out);
-//
-//
-//    ifstream ifs;
-//    ifs.open((filename).c_str(),ios::in);
-//    if(!(ifs.is_open())){
-//        throw "Fajl nyitas nem sikerult";
-//    }
-//
-//    while(!(ifs.eof())){
-//        ifs>>kanji;
-//        ifs>>hiragana;
-//        ifs.ignore(1);
-//        int kanalength=utf8::distance(hiragana.begin(),hiragana.end());
-//        int kanjilength=utf8::distance(kanji.begin(),kanji.end());
-//
-//        string::iterator it1=kanji.begin();
-//        string::iterator it2=hiragana.begin();
-//        cout<<kanji<<'\t'<<hiragana<<"End"<<endl;
-//        myfile1<<"\\mbox{";
-//        while((it1!=kanji.end())){
-//        uint32_t temp1=utf8::next(it1,kanji.end());
-//        string res1;
-//        utf8::utf32to8(&temp1,&temp1+1,back_inserter(res1));
-//
-//
-//        //furigana
-//        uint32_t temp2=utf8::next(it2,hiragana.end());
-//        string res2;
-//        utf8::utf32to8(&temp2,&temp2+1,back_inserter(res2));
-//
-//        if(res1.compare(res2)==0){
-//            myfile1<<"\\makebox[0.9 cm][c]{"<<res1<<"}";
-//            res2="";
-//            //vesszo beolvasasa
-//            temp2=utf8::next(it2,hiragana.end());
-//
-//        }
-//
-//        else{
-//        myfile1<<"\\ruby{\\framebox[1.1 cm][c]{"<<res1<<"}}{";
-//        cout<<res1<<'\t';
-//
-//        while(res2.compare(u8",")!=0 && it2!=hiragana.end()){
-//
-//        myfile1<<res2;
-//        cout<<res2<<"utana";
-//        temp2=utf8::next(it2,hiragana.end());
-//        res2="";
-//        utf8::utf32to8(&temp2,&temp2+1,back_inserter(res2));
-//        cout<<res2<<endl;
-//        cout<<"ellenorzes:"<<res2.compare(u8",")<<endl;
-//
-//
-//        }
-//        myfile1<<"}";
-//        }
-//        cout<<"kijottem"<<endl;
-//        }
-//        myfile1<<"}、\\vspace{3 pt} ";
-//        cout<<"kanjibol is 、kijottem"<<endl;
-//
-//    }
-//    ifs.close();
-//    myfile1.close();
-//
     cout <<"Kesz"<<endl;
 
 
